@@ -31,38 +31,37 @@
 </template>
 
 <script>
+import { computed, onMounted, ref } from "vue";
+
 export default {
-  setup() {},
-  computed: {
-    fruitsCount() {
-      return this.fruitsList.length;
-    },
-  },
+  setup() {
+    const newFruitRef = ref("");
+    const newFruit = ref("");
+    const fruitsList = ref([
+      { name: "Apple" },
+      { name: "Orange" },
+      { name: "Mango" },
+      { name: "Pineapple" },
+    ]);
 
-  mounted() {
-    this.$refs.newFruitRef.focus();
-  },
-  methods: {
-    addFruit() {
-      if (this.newFruit != "") {
-        this.fruitsList.unshift({ name: this.newFruit });
-        this.newFruit = "";
+    onMounted(() => {
+      newFruitRef.value.focus();
+    });
+
+    const fruitsCount = computed({ get: () => fruitsList.value.length });
+
+    function addFruit() {
+      if (newFruit.value != "") {
+        fruitsList.value.unshift({ name: newFruit.value });
+        newFruit.value = "";
       }
-    },
+    }
 
-    remove(index) {
-      this.fruitsList = this.fruitsList.filter((fruit, i) => i != index);
-    },
-  },
-  data() {
-    return {
-      fruitsList: [
-        { name: "Apple" },
-        { name: "Orange" },
-        { name: "Mango" },
-        { name: "Pineapple" },
-      ],
-    };
+    function remove(index) {
+      fruitsList.value = fruitsList.value.filter((fruit, i) => i != index);
+    }
+
+    return { fruitsList, newFruit, addFruit, remove, newFruitRef, fruitsCount };
   },
 };
 </script>

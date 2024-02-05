@@ -15,7 +15,7 @@ export default {
     loginWithGoogle() {
       var provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider).then(() => {
-        this.$emit("close-login");
+        this.$emit("close-login-from-google");
       });
     },
   },
