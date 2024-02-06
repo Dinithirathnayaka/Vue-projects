@@ -5,6 +5,7 @@ import Home from "./pages/HomeCon";
 import Markdown from "./pages/MarkdownCon";
 import Slider from "./pages/SliderCon";
 import Calculator from "./pages/CalculatorCon";
+import ReuseableModal from "./pages/ReuseableModal";
 
 const routes = [
   { path: "/", component: Home },
@@ -13,6 +14,7 @@ const routes = [
   { path: "/markdown", component: Markdown },
   { path: "/slider", component: Slider },
   { path: "/calculator", component: Calculator },
+  { path: "/reuseable-modal", component: ReuseableModal },
 ];
 
 const router = createRouter({
