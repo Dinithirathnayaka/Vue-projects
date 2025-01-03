@@ -1,4 +1,5 @@
 <template>
+
   <section class="flex w-full">
     <div class="m-auto">
       <h1 class="text-2xl text-center">Calculator</h1>
@@ -20,7 +21,7 @@
           @click="pressed('1')"
           class="w-10 h-10 p-2 border rounded shadow"
         >
-          1
+          1 00f
         </button>
         <button
           @click="pressed('2')"
